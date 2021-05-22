@@ -6,6 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CharacterResponse(
+    @SerializedName("count")
+    val count:Int,
+    @SerializedName("next")
+    val next:String?,
+    @SerializedName("previous")
+    val previous:String?,
     @SerializedName("results")
     val characters: List<CharacterDetailsResponse>
 ): Parcelable
@@ -30,8 +36,20 @@ data class CharacterDetailsResponse(
     val gender:String,
     @SerializedName("homeworld")
     val homeWorld:String,
+    @SerializedName("films")
+    val films:List<String>,
+    @SerializedName("species")
+    val species:List<String>,
     @SerializedName("vehicles")
-    val vehicles:List<String>
+    val vehicles:List<String>,
+    @SerializedName("starships")
+    val starShips:List<String>,
+    @SerializedName("created")
+    val created:String,
+    @SerializedName("edited")
+    val edited:String,
+    @SerializedName("url")
+    val url:String
 ): Parcelable
 
 

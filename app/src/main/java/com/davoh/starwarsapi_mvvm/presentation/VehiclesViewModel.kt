@@ -1,7 +1,6 @@
 package com.davoh.starwarsapi_mvvm.presentation
 
 import androidx.lifecycle.ViewModel
-import com.davoh.starwarsapi_mvvm.usecases.GetPlanetsUseCase
 import com.davoh.starwarsapi_mvvm.usecases.GetVehiclesUseCase
 
 class VehiclesViewModel(
