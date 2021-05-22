@@ -22,6 +22,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             1 -> {
                 PlanetsFragment()
             }
+            2 -> {
+                VehiclesFragment()
+            }
             else ->  return CharactersFragment()
         }
     }
