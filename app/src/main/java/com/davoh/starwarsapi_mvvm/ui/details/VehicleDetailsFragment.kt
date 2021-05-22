@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import com.davoh.starwarsapi_mvvm.R
@@ -22,7 +23,8 @@ class VehicleDetailsFragment : Fragment() {
 
         val binding: FragmentVehicleDetailsBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_vehicle_details, container, false)
-
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = args.vehicle.name
         binding.vehicle = args.vehicle
 
         return binding.root

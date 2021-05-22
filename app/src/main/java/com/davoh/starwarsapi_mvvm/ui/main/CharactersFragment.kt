@@ -85,7 +85,7 @@ class CharactersFragment : Fragment() {
         event?.getContentIfNotHandled()?.let { navigation ->
             when (navigation) {
                 is ShowCharactersError -> navigation.run {
-                    Toast.makeText(requireContext(), "Error fetching data", Toast.LENGTH_SHORT).show()
+
                 }
                 is ShowCharactersList -> navigation.run {
                     val listCharacters = adapter.currentList.toMutableList()
@@ -98,6 +98,7 @@ class CharactersFragment : Fragment() {
                 }
                 ShowLoading -> {
                         binding.progressCircular.visibility = View.VISIBLE
+                        binding.swipeRefreshRv.isRefreshing = false
                 }
             }
 

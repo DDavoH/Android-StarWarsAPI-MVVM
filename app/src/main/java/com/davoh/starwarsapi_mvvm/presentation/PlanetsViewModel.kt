@@ -49,6 +49,11 @@ class PlanetsViewModel(
         )
     }
 
+    fun onRetryGetAllPlanets() {
+        _page=1
+        loadPlanets()
+    }
+
     private fun isInFooter(
         visibleItemCount: Int,
         firstVisibleItemPosition: Int,

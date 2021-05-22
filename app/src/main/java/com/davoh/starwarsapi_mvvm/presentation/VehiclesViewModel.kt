@@ -50,6 +50,11 @@ class VehiclesViewModel(
         )
     }
 
+    fun onRetryGetAllVehicles() {
+        _page=1
+        loadVehicles()
+    }
+
     private fun isInFooter(
         visibleItemCount: Int,
         firstVisibleItemPosition: Int,

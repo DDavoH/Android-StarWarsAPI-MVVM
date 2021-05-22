@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -22,7 +23,8 @@ class CharacterDetailsFragment : Fragment() {
     ): View {
         val binding: FragmentCharacterDetailsBinding = DataBindingUtil.inflate(inflater,
             R.layout.fragment_character_details, container, false)
-
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = args.character.name
         binding.character = args.character
 
 

@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.main.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="" >
         <action
             android:id="@+id/action_homeFragment_to_characterDetailsFragment"
             app:destination="@id/characterDetailsFragment" >
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.details.CharacterDetailsFragment"
-        android:label="CharacterDetailsFragment" >
+        android:label="" >
 
         <argument
             android:name="character"
@@ -51,21 +51,21 @@
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.main.CharactersFragment"
-        android:label="CharactersFragment" >
+        android:label="" >
 
     </fragment>
     <fragment
         android:id="@+id/planetsFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.main.PlanetsFragment"
-        android:label="PlanetsFragment" />
+        android:label="" />
     <fragment
         android:id="@+id/vehiclesFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.main.VehiclesFragment"
-        android:label="VehiclesFragment" />
+        android:label="" />
     <fragment
         android:id="@+id/planetDetailsFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.details.PlanetDetailsFragment"
-        android:label="PlanetDetailsFragment" >
+        android:label="" >
         <argument
             android:name="planet"
             app:argType="com.davoh.starwarsapi_mvvm.domain.Planet"
@@ -74,7 +74,7 @@
     <fragment
         android:id="@+id/vehicleDetailsFragment"
         android:name="com.davoh.starwarsapi_mvvm.ui.details.VehicleDetailsFragment"
-        android:label="VehicleDetailsFragment" >
+        android:label="" >
         <argument
             android:name="vehicle"
             app:argType="com.davoh.starwarsapi_mvvm.domain.Vehicle"

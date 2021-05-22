@@ -69,6 +69,10 @@ class VehiclesFragment : Fragment() {
             }
         })
 
+        binding.swipeRefreshRv.setOnRefreshListener {
+            vehiclesViewModel.onRetryGetAllVehicles()
+        }
+
         vehiclesViewModel.loadVehicles()
         vehiclesViewModel.events.observe(viewLifecycleOwner, Observer(this::validateEvents))
 
@@ -79,7 +83,7 @@ class VehiclesFragment : Fragment() {
         event?.getContentIfNotHandled()?.let { navigation ->
             when (navigation) {
                 is ShowVehiclesError -> navigation.run {
-                    Toast.makeText(requireContext(), "Error fetching data", Toast.LENGTH_SHORT).show()
+
                 }
                 is ShowVehiclesList -> navigation.run {
                     val adapterList = adapter.currentList.toMutableList()
@@ -88,9 +92,11 @@ class VehiclesFragment : Fragment() {
                 }
                 HideLoading -> {
                     binding.progressCircular.visibility = View.GONE
+                    binding.swipeRefreshRv.isRefreshing = false
                 }
                 ShowLoading -> {
                     binding.progressCircular.visibility = View.VISIBLE
+                    binding.swipeRefreshRv.isRefreshing = false
                 }
             }
 
