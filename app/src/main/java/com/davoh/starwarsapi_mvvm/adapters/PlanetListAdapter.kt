@@ -28,6 +28,9 @@ class PlanetListAdapter : ListAdapter<Planet, RecyclerView.ViewHolder>(DiffCallb
     inner class ItemViewHolder(private val binding: RowPlanetBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Planet) {
             binding.planet = item
+            binding.row.setOnClickListener {
+                listener?.onFavoriteBtnClick(item)
+            }
         }
     }
 

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +24,6 @@ import com.davoh.starwarsapi_mvvm.presentation.CharactersViewModel.CharactersNav
 import com.davoh.starwarsapi_mvvm.presentation.CharactersViewModel.CharactersNavigation.*
 import com.davoh.starwarsapi_mvvm.presentation.utils.Event
 import com.davoh.starwarsapi_mvvm.utils.getViewModel
-import com.google.android.material.progressindicator.CircularProgressIndicator
 
 
 class CharactersFragment : Fragment() {
@@ -52,7 +52,7 @@ class CharactersFragment : Fragment() {
         binding.rv.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         adapter.setOnItemClickListener(object : CharacterListAdapter.OnItemClickListener {
             override fun onFavoriteBtnClick(character: Character) {
-
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToCharacterDetailsFragment(character))
             }
         })
         binding.rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -70,6 +70,10 @@ class CharactersFragment : Fragment() {
                 )
             }
         })
+
+        binding.swipeRefreshRv.setOnRefreshListener {
+            charactersViewModel.onRetryGetAllCharacters()
+        }
 
         charactersViewModel.loadCharacters()
         charactersViewModel.events.observe(viewLifecycleOwner, Observer(this::validateEvents))
@@ -90,6 +94,7 @@ class CharactersFragment : Fragment() {
                 }
                 HideLoading -> {
                         binding.progressCircular.visibility = View.GONE
+                        binding.swipeRefreshRv.isRefreshing = false
                 }
                 ShowLoading -> {
                         binding.progressCircular.visibility = View.VISIBLE
@@ -103,6 +108,5 @@ class CharactersFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 
 }

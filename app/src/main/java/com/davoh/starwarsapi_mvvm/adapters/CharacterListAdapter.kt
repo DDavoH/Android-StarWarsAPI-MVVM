@@ -17,7 +17,7 @@ class CharacterListAdapter : ListAdapter<Character, RecyclerView.ViewHolder>(Dif
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ItemViewHolder(
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.row_character,parent, false)
+            DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.row_character, parent, false)
         )
     }
 
@@ -28,6 +28,9 @@ class CharacterListAdapter : ListAdapter<Character, RecyclerView.ViewHolder>(Dif
     inner class ItemViewHolder(private val binding: RowCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Character) {
            binding.character = item
+           binding.row.setOnClickListener {
+                listener?.onFavoriteBtnClick(item)
+           }
         }
     }
 

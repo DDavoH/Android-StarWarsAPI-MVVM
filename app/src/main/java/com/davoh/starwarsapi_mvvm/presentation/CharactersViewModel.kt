@@ -49,6 +49,11 @@ class CharactersViewModel(
         )
     }
 
+    fun onRetryGetAllCharacters() {
+        _page=1
+        loadCharacters()
+    }
+
     private fun isInFooter(
         visibleItemCount: Int,
         firstVisibleItemPosition: Int,

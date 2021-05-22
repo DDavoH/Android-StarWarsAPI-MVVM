@@ -27,6 +27,9 @@ class VehicleListAdapter : ListAdapter<Vehicle, RecyclerView.ViewHolder>(DiffCal
     inner class ItemViewHolder(private val binding: RowVehicleBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Vehicle) {
             binding.vehicle = item
+            binding.row.setOnClickListener {
+                listener?.onFavoriteBtnClick(item)
+            }
         }
     }
 

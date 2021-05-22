@@ -18,6 +18,7 @@ import com.davoh.starwarsapi_mvvm.di.MainComponent
 import com.davoh.starwarsapi_mvvm.di.MainModule
 import com.davoh.starwarsapi_mvvm.domain.Planet
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.davoh.starwarsapi_mvvm.presentation.PlanetsViewModel
 import com.davoh.starwarsapi_mvvm.presentation.PlanetsViewModel.PlanetsNavigation
 import com.davoh.starwarsapi_mvvm.presentation.PlanetsViewModel.PlanetsNavigation.*
@@ -50,7 +51,7 @@ class PlanetsFragment : Fragment() {
         binding.rv.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         adapter.setOnItemClickListener(object : PlanetListAdapter.OnItemClickListener {
             override fun onFavoriteBtnClick(planet: Planet) {
-
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPlanetDetailsFragment(planet))
             }
         })
         binding.rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {

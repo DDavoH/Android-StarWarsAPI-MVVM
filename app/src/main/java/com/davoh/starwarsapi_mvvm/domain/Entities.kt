@@ -1,5 +1,9 @@
 package com.davoh.starwarsapi_mvvm.domain
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Character(
     val name:String,
     val height : String,
@@ -11,8 +15,9 @@ data class Character(
     val gender:String,
     val homeWorld:String,
     val vehicles:List<String>
-)
+):Parcelable
 
+@Parcelize
 data class Planet(
     val name: String,
     val rotationPeriod: String,
@@ -22,8 +27,9 @@ data class Planet(
     val terrain:String,
     val surfaceWater:String,
     val population:String
-)
+):Parcelable
 
+@Parcelize
 data class Vehicle(
     val name:String,
     val model:String,
@@ -35,4 +41,4 @@ data class Vehicle(
     val cargoCapacity:String,
     val consumables:String,
     val vehicleClass:String
-)
+):Parcelable

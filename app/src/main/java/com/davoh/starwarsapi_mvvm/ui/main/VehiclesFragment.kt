@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +50,7 @@ class VehiclesFragment : Fragment() {
         binding.rv.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         adapter.setOnItemClickListener(object : VehicleListAdapter.OnItemClickListener {
             override fun onFavoriteBtnClick(vehicle: Vehicle) {
-
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToVehicleDetailsFragment(vehicle))
             }
         })
         binding.rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {

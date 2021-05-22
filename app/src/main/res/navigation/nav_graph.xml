@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.main.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" >
+
+            <argument
+                android:name="character"
+                app:argType="com.davoh.starwarsapi_mvvm.domain.Character"
+                />
+
+        </action>
+        <action
+            android:id="@+id/action_homeFragment_to_planetDetailsFragment"
+            app:destination="@id/planetDetailsFragment" >
+            <argument
+                android:name="planet"
+                app:argType="com.davoh.starwarsapi_mvvm.domain.Planet"
+                />
+        </action>
+        <action
+            android:id="@+id/action_homeFragment_to_vehicleDetailsFragment"
+            app:destination="@id/vehicleDetailsFragment" >
+            <argument
+                android:name="vehicle"
+                app:argType="com.davoh.starwarsapi_mvvm.domain.Vehicle"
+                />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.details.CharacterDetailsFragment"
+        android:label="CharacterDetailsFragment" >
+
+        <argument
+            android:name="character"
+            app:argType="com.davoh.starwarsapi_mvvm.domain.Character"
+            app:nullable="false" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.main.CharactersFragment"
+        android:label="CharactersFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/planetsFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.main.PlanetsFragment"
+        android:label="PlanetsFragment" />
+    <fragment
+        android:id="@+id/vehiclesFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.main.VehiclesFragment"
+        android:label="VehiclesFragment" />
+    <fragment
+        android:id="@+id/planetDetailsFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.details.PlanetDetailsFragment"
+        android:label="PlanetDetailsFragment" >
+        <argument
+            android:name="planet"
+            app:argType="com.davoh.starwarsapi_mvvm.domain.Planet"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/vehicleDetailsFragment"
+        android:name="com.davoh.starwarsapi_mvvm.ui.details.VehicleDetailsFragment"
+        android:label="VehicleDetailsFragment" >
+        <argument
+            android:name="vehicle"
+            app:argType="com.davoh.starwarsapi_mvvm.domain.Vehicle"
+            app:nullable="false" />
+    </fragment>
+</navigation>
